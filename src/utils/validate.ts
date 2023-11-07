@@ -5,26 +5,19 @@ type Error = {
 };
 
 export const validate = (data: User) => {
-  const errors: User[] = [];
-
-  const extractedErrors: Error = {};
+  const errors: Error = {};
 
   if (!data.name) {
-    errors.push({ name: "O nome é obrigatório" });
+    errors["name"] = "O nome é obrigatório"; // Use a chave diretamente para atribuir a mensagem de erro.
   }
 
   if (!data.email) {
-    errors.push({ email: "O e-mail é obrigatório" });
+    errors["email"] = "O e-mail é obrigatório";
   }
 
   if (!data.agree) {
-    errors.push({ agree: "Você precisa concordar com os termos" });
+    errors["agree"] = "Você precisa concordar com os termos";
   }
 
-  errors.forEach((err) => {
-    const key = Object.keys(err)[0];
-    extractedErrors[key] = err[key];
-  });
-
-  return extractedErrors;
+  return errors;
 };
