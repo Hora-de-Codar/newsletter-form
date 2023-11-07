@@ -8,7 +8,7 @@ export const validate = (data: User) => {
   const errors: Error = {};
 
   if (!data.name) {
-    errors["name"] = "O nome é obrigatório"; // Use a chave diretamente para atribuir a mensagem de erro.
+    errors["name"] = "O nome é obrigatório";
   }
 
   if (!data.email) {
